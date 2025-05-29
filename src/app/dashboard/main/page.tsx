@@ -1,13 +1,22 @@
-import { Sidebar } from '@/app/components/Sidebar';
+import { WidgetsGrid } from "@/components";
+import { Sidebar } from "@/components/sidebar/Sidebar";
+
+export const metadata = {
+  title: "Admin Dashboard",
+  description: "Laborum eu laboris quis enim enim fugiat veniam sit sunt.",
+};
 
 export default function MainPage() {
   return (
-    <div className="flex">
+    <div className="flex text-center ml-60 p-10">
       <Sidebar />
-      <main className="flex-1 p-6">
-        <h1 className="text-gray-700 text-2xl font-bold">Main Dashboard</h1>
+      <div className="flex-1 p-2 text-black">
+        <h1 className="text-gray-700 text-2xl font-bold">Dashboard</h1>
+        <span className="text-xl">Information General</span>
 
-      </main>
+        <div className="flex flex-wrap p-2 items-center justify-center"></div>
+        <WidgetsGrid />
+      </div>
     </div>
   );
 }

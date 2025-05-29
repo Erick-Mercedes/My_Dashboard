@@ -1,38 +1,52 @@
 import Image from "next/image";
 import React from "react";
-import { IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
-import { SidebarMenuItem } from "./SidebarMenuItem";
+import {
+  IoBrowsersOutline,
+  IoCalculator,
+  IoFootball,
+  IoHeartHalfOutline,
+  IoLogoReact,
+} from "react-icons/io5";
+import { SidebarMenuItem } from "../sidebar/SidebarMenuItem";
 
 const menuItems = [
   {
     path: "/dashboard/main",
     icon: <IoBrowsersOutline size={40} />,
     title: "Dashboard",
-    subTitle: "Visualizacion",
+    subTitle: "Visualización",
   },
-
   {
     path: "/dashboard/counter",
     icon: <IoCalculator size={40} />,
     title: "Counter",
     subTitle: "Contador Client Side",
   },
+  {
+    path: "/dashboard/pokemons",
+    icon: <IoFootball size={40} />,
+    title: "Pokemons",
+    subTitle: "Generador Estático",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoHeartHalfOutline size={40} />,
+    title: "Favorites",
+    subTitle: "Global State",
+  },
 ];
 
 export const Sidebar = () => {
   return (
-    /* Sidebar */
     <aside
       id="menu"
-      style={{ width: "350px" }}
-      className="bg-gray-900 text-slate-500 w-64 left-0 top-0 h-screen z-10 overflow-y-auto"
+      className="fixed top-0 left-0 h-screen w-64 bg-gray-900 text-slate-500 z-50 overflow-y-auto shadow-lg"
     >
       {/* Logo */}
       <div id="logo" className="my-4 px-6">
-        <h1 className=" flex items-center text-lg md:text-2xl font-bold text-white">
-          <IoLogoReact className="mr-2"></IoLogoReact>
+        <h1 className="flex items-center text-lg md:text-2xl font-bold text-white">
+          <IoLogoReact className="mr-2" />
           <span className="text-gray-400">Wallethor</span>
-          {/*<span className="text-blue-600"></span>*/}
         </h1>
         <p className="text-slate-500 text-sm">
           Manage your actions and activities
@@ -57,7 +71,7 @@ export const Sidebar = () => {
       {/* Navigation */}
       <nav id="nav" className="px-6">
         {menuItems.map((item) => (
-          <SidebarMenuItem key={item.path} {...item}></SidebarMenuItem>
+          <SidebarMenuItem key={item.path} {...item} />
         ))}
       </nav>
     </aside>
